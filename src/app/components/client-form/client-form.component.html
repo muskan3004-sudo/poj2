@@ -1,0 +1,88 @@
+<div class="landing-page">
+  <div class="glass-container">
+    <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+      <!-- Customer Details -->
+      <h2>Customer Details</h2>
+      <mat-form-field appearance="fill" class="input-field">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="input-field">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="input-field">
+        <mat-label>Preferred Name</mat-label>
+        <input matInput formControlName="preferredName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="input-field">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput formControlName="dob" [matDatepicker]="picker" required />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <!-- Address -->
+      <h2>Address</h2>
+      <mat-form-field appearance="fill" class="input-field">
+        <mat-label>Street Name</mat-label>
+        <input matInput formControlName="streetName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="input-field">
+        <mat-label>Postcode</mat-label>
+        <input matInput formControlName="postcode" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="input-field">
+        <mat-label>Town</mat-label>
+        <input matInput formControlName="townLocationName" />
+      </mat-form-field>
+
+      <!-- Employment Details -->
+      <h2>Employment Details</h2>
+      <mat-form-field appearance="fill" class="input-field">
+        <mat-label>Employment Status</mat-label>
+        <mat-select formControlName="employmentStatus" required>
+          <mat-option value="employed">Employed</mat-option>
+          <mat-option value="not-employed">Not Employed</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="input-field">
+        <mat-label>Sector</mat-label>
+        <mat-select formControlName="sectors">
+          <mat-option *ngFor="let sector of sectors" [value]="sector">{{ sector }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Account Details -->
+      <h2>Account Details</h2>
+      <mat-form-field appearance="fill" class="input-field">
+        <mat-label>Account Name</mat-label>
+        <input matInput formControlName="accountName" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="input-field">
+        <mat-label>Account Number</mat-label>
+        <input matInput formControlName="accountNumber" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="input-field">
+        <mat-label>Currency</mat-label>
+        <input matInput formControlName="currency" required />
+      </mat-form-field>
+
+      <!-- Submit Button -->
+      <div class="actions">
+        <button mat-raised-button class="btn-submit" type="submit" [disabled]="requestForm.invalid">
+          Submit
+        </button>
+      </div>
+    </form>
+
+  </div>
+</div>
