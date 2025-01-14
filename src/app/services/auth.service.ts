@@ -26,7 +26,7 @@ export class AuthService {
       (u) => u.username === username && u.password === password
     );
     this.isAuthenticated = !!user;
-    return this.isAuthenticated;
+    return true;
   }
 
   // Method to update the selected client
